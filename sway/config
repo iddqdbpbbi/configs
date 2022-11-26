@@ -71,7 +71,7 @@ exec swayidle -w \
 #
     # Open browser
     workspace 1
-  
+
     bindsym $mod+z workspace 1; exec chromium
     bindsym $mod+x workspace 2; exec obsidian
     bindsym $mod+c workspace 3; exec code
@@ -223,8 +223,14 @@ mode "resize" {
 #! bindsym $mod+r mode "resize"
 # Color config
 include /home/qd/.config/sway/themes/base16-atelier-heath.config
-# Status Bar:
 
+### Kmonad config loading (2 sec is a feature)
+exec ~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kb
+
+### Redshift
+exec gammastep -l 59.2239:39.884
+
+### Status Bar:
 exec waybar -c .config/sway/waybar/config
 exec_always pkill waybar && waybar -c .config/sway/waybar/config
 #bar {
