@@ -86,28 +86,28 @@ zZhld (tap-hold 300 C-z C-Z)
   esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
   _      1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
   _      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
-  @cesc  r    s    t    XX   XX   XX   XX   XX   e    i    o    @sret
-  @t2e   l    d    a    XX   XX   XX   XX        n    XX   u    @t3e
+  @cesc  a    s    t    XX   XX   XX   XX   XX   e    i    o    @sret
+  @t2e   l    d    r    XX   XX   XX   XX        n    m    u    @t3e
   @sqwl @tmf1 @tbcl            spc               @t1s @altb 
-  left up down right 
+  XX     XX   XX   XX
 )
 (deflayer dzn_en_layer_2
-  esc   f1    f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  esc   f1    f2   f3   f4   f5   f6   f7   f8  f9   f10  f11  f12  del
   _     1     2    3    4    5    6    7    8   9    0    XX   XX   bspc
   _     XX    XX   XX   XX   XX   XX   XX   XX  XX   XX   XX   XX   XX
   _     f     b    g    XX   XX   XX   XX   XX  p    v    h    _
-  XX    z     x    c    XX   XX   XX   XX       k    XX   XX   _
+  XX    z     x    c    XX   XX   XX   XX       k    w    y    _
   @sqwl @tmf2 _              spc                @t2s _ 
-  left up down right 
+  _     _    _    _ 
 )
 (deflayer dzn_en_layer_3
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10    f11  f12  del
   _     1    2    3     4    5    6    7    8    9    0     XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX   XX    XX   XX   XX
-  _     q    XX   XX    XX   XX   XX   XX   XX   y    w     j    _
-  @t2e  XX   XX   XX    XX   XX   XX   XX        m    XX    XX   XX
-  @sqwl @tmf3    _               spc             @t3s _ 
-  left  up down right 
+  _     q    XX   XX    XX   XX   XX   XX   XX   XX    XX     j    _
+  @t2e  XX   XX   XX    XX   XX   XX   XX        XX    XX    XX   XX
+  @sqwl @tmf3     _               spc             @t3s _ 
+  _     _    _    _
 )
 
 ;;;; QWERTY en layout
@@ -134,10 +134,10 @@ zZhld (tap-hold 300 C-z C-Z)
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del
   _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
-  @cesc @и   @е    @о  XX   XX   XX   XX   XX   @н    @т   @л   @sret
-  @t2r  @м   @в    @а  XX   XX   XX   XX        @к    @с   @р   @t3r
+  @cesc @и   @е   @о  XX   XX   XX   XX   XX   @н    @т   @л   @sret
+  @t2r  @м   @в   @а  XX   XX   XX   XX        @к    @с   @р   @t3r
   @sqwl @tmf1 @tbcl            spc              @t1sr @altb
-  left up down right
+  XX    XX   XX   XX
 )
 (deflayer dzn_ru_second_layer
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del
@@ -145,8 +145,8 @@ zZhld (tap-hold 300 C-z C-Z)
   _     XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   _     @й   @ы   @я   XX   XX   XX   XX   XX   @п    @б   @д   _
   XX    @у   @г   @ь   XX   XX   XX   XX        @з    @ж   @ч   _
-  _     @tmf2    _              spc             @t2sr  _ 
-  left up down right 
+  _     @tmf2     _              spc            @t2sr  _ 
+  _     _    _    _ 
 )
 (deflayer dzn_ru_third_layer
   esc   f1    f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12   del
@@ -155,7 +155,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     @ф    @ё   @х   XX   XX   XX   XX   XX   @ш    @щ    @э  _
   _     XX    XX   @ц   XX   XX   XX   XX        @ю    XX    XX  XX
   _     @tmf3  _              spc                @t3sr _
-  left up down right 
+  _     _    _    _ 
 )
 
 ;;;; Command layers

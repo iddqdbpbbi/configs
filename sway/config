@@ -18,12 +18,13 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu -fn RobotoMono | xargs swaymsg exec --
+set $menu dmenu_path | dmenu -fn FiraCode  | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/zen.jpeg fill
+font pango: FiraCode Nerd Font Medium 12
 #default_border none
 gaps inner 5
 smart_borders on
@@ -83,7 +84,7 @@ exec swayidle -w \
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+r exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -128,22 +129,22 @@ exec swayidle -w \
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+r workspace number 1
+    bindsym $mod+a workspace number 1
     bindsym $mod+s workspace number 2
     bindsym $mod+t workspace number 3
-   # bindsym $mod+4 workspace number 4
-   # bindsym $mod+5 workspace number 5
+    bindsym $mod+l workspace number 4
+    bindsym $mod+d workspace number 5
    # bindsym $mod+6 workspace number 6
     #bindsym $mod+7 workspace number 7
    # bindsym $mod+8 workspace number 8
    # bindsym $mod+9 workspace number 9
    # bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+r move container to workspace number 1 
+    bindsym $mod+Shift+a move container to workspace number 1 
     bindsym $mod+Shift+s move container to workspace number 2
     bindsym $mod+Shift+t move container to workspace number 3
-   # bindsym $mod+Shift+4 move container to workspace number 4
-   # bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+l move container to workspace number 4
+    bindsym $mod+Shift+d move container to workspace number 5
    # bindsym $mod+Shift+6 move container to workspace number 6
    # bindsym $mod+Shift+7 move container to workspace number 7
    # bindsym $mod+Shift+8 move container to workspace number 8
@@ -172,7 +173,7 @@ exec swayidle -w \
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    bindsym $mod+p focus parent
 #
 # Scratchpad:
 #
@@ -273,5 +274,4 @@ input * {
 }
     bindsym Mod1+1 exec swaymsg input "1:1:AT_Translated_Set_2_keyboard" xkb_switch_layout 0
     bindsym Mod1+2 exec swaymsg input "1:1:AT_Translated_Set_2_keyboard" xkb_switch_layout 1
-font FontAwesome,RobotoMono 15
 include /etc/sway/config.d/*
