@@ -1,4 +1,4 @@
-(defcfg
+  (defcfg
   input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
   output (uinput-sink "My KMonad output")
   cmp-seq slck
@@ -55,6 +55,11 @@ t2c (layer-toggle dzn_control_2)
 t2cb (tap-hold 170 bspc @t2c) ;; unused
 t3c (layer-toggle dzn_control_3)
 
+;; Number layers
+s1n (layer-switch dzn_numbers_1)
+t2n (layer-toggle dzn_numbers_2)
+t3n (layer-toggle dzn_numbers_3)
+
 ;; Symbol layers
 t1s (layer-toggle dzn_symbols_1)
 t2s (layer-toggle dzn_symbols_2)
@@ -66,7 +71,7 @@ t2sr (tap-macro-release #(@usls @t2s) @ruls)
 t3sr (tap-macro-release #(@usls @t3s) @ruls)
 
 ;; Keys for good men
-cesc (tap-hold 300 esc (sticky-key 15000 lsft))
+cesc (tap-hold 300 #(esc @s1c) (sticky-key 1500 lsft))
 sret (tap-next-release ret ret)
 altb (tap-hold 300 bspc ralt)
 
@@ -163,9 +168,9 @@ zZhld (tap-hold 300 C-z C-Z)
   esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
   _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
   _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
-  @cesc XX     XX    @s1e   XX   XX   XX   XX   XX   down  up   right @sret
-  @t2c  @zZhld XX    @cphld XX   XX   XX   XX        left  XX   @s1r  @t3c
-  @sqwl @tmf1  @tbcl             spc                 XX    @altb 
+  @cesc XX     XX    XX     XX   XX   XX   XX   XX   down  up   right @sret
+  @t2c  @zZhld XX    @cphld XX   XX   XX   XX        left  XX   XX    @t3c
+  @sqwl @tmf1  @tbcl             spc                 @s1e  @altb 
   left up down right 
 )
 (deflayer dzn_control_2
@@ -174,7 +179,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     XX    XX    XX    XX   XX   XX   XX   XX   pgdn  pgup end   _
   XX    XX    XX    XX    XX   XX   XX   XX        home  XX   XX    _
-  @sqwl @tmf2 _                spc                 XX    _ 
+  @sqwl @tmf2 _                spc                 @s1n    _ 
   left up down right 
 )
 (deflayer dzn_control_3
@@ -183,7 +188,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     M-q   XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    _
   _     M-y   XX    XX    XX   XX   XX   XX        XX    XX   XX    XX
-  @sqwl @tmf3     _                spc             XX    _ 
+  @sqwl @tmf3     _                spc             @s1r    _ 
   left up down right 
 )
 
@@ -215,4 +220,33 @@ zZhld (tap-hold 300 C-z C-Z)
   _     @s1c  XX   $     XX   XX   XX   XX        ^     XX   XX   XX
   @sqwl _     _               spc                 XX    _ 
   left up down right 
+)
+
+;;;; Numbers layers
+(deflayer dzn_numbers_1
+  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  @cesc 1      2     3      XX   XX   XX   XX   XX   7     8    9     @sret
+  @t2n  4      5     6      XX   XX   XX   XX        0     XX   XX    @t3n
+  @sqwl @tmf1  @tbcl             spc                 @t1s    @altb 
+  XX    XX     XX    XX
+)
+(deflayer dzn_numbers_2
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  _     f1    f2    f3    XX   XX   XX   XX   XX   f4    f5   f6    _
+  XX    f7    f8    f9    XX   XX   XX   XX        f10   f11  f12   _
+  @sqwl @tmf2 _                spc                 @t2s    _ 
+  _     _     _     _ 
+)
+(deflayer dzn_numbers_3
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    _
+  _     XX    XX    XX    XX   XX   XX   XX        XX    XX   XX    XX
+  @sqwl @tmf3     _                spc             @t3s     _ 
+  _     _     _     _ 
 )

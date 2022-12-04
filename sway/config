@@ -219,14 +219,14 @@ mode "resize" {
 
     # Return to default mode
     bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym Escape mode "default"   
 }
 #! bindsym $mod+r mode "resize"
 # Color config
 include /home/qd/.config/sway/themes/base16-atelier-heath.config
 
 ### Kmonad config loading (2 sec is a feature)
-exec ~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kb
+exec (sleep 2 |~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kb)
 
 ### Redshift
 exec gammastep -l 59.2239:39.884
