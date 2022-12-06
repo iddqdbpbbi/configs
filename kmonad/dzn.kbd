@@ -1,0 +1,252 @@
+  (defcfg
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "My KMonad output")
+  cmp-seq slck
+  allow-cmd true
+)
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k         l    ;    '    ret
+  lsft z    x    c    v    b    n    m              ,    .    /    rsft
+  lctl lmet lalt           spc                      ralt rctl 
+  left up down right
+)
+#|
+(deflayer NAME
+  _     _ _ _ _ _ _ _ _ _ _ _ _   _
+  _     _ _ _ _ _ _ _ _ _ _ _ _   _
+  _     _ _ _ _ _ _ _ _ _ _ _     _
+  _     _ _ _ _ _ _ _ _ _ _       _
+  _     _ _     _         _ _
+)
+|#
+
+(defalias
+;; Language switch aliases in sway
+usls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 0")
+ruls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 1")
+;; Layer switch aliases
+;; "Normies" layers
+sqwl (layer-switch qwerty)
+
+
+#| dzn layout 
+This layout use 12 symbol keys.
+|#
+
+;; En layers
+s1e #(@usls (layer-switch dzn_en_layer_1))
+t1e #(@usls (layer-toggle dzn_en_layer_1))
+t2e (layer-toggle dzn_en_layer_2)
+t2eb (tap-hold 170 bspc @t2e);; unused
+t3e (layer-toggle dzn_en_layer_3)
+
+;; Russian layers
+s1r #(@ruls (layer-switch dzn_ru_first_layer))
+t2r (layer-toggle dzn_ru_second_layer)
+t2rb (tap-hold 170 bspc @t2r);; unused
+t3r (layer-toggle dzn_ru_third_layer)
+
+;; Control layers
+s1c (layer-switch dzn_control_1)
+t2c (layer-toggle dzn_control_2)
+t2cb (tap-hold 170 bspc @t2c) ;; unused
+t3c (layer-toggle dzn_control_3)
+
+;; Number layers
+s1n (layer-switch dzn_numbers_1)
+t2n (layer-toggle dzn_numbers_2)
+t3n (layer-toggle dzn_numbers_3)
+
+;; Symbol layers
+t1s (layer-toggle dzn_symbols_1)
+t2s (layer-toggle dzn_symbols_2)
+t2sb (tap-hold 170 bspc @t2s);; unused
+t3s (layer-toggle dzn_symbols_3)
+;;;; 
+t1sr (tap-macro-release #(@usls @t1s) @ruls)
+t2sr (tap-macro-release #(@usls @t2s) @ruls)
+t3sr (tap-macro-release #(@usls @t3s) @ruls)
+
+;; Keys for good men
+cesc (tap-hold 300 #(esc @s1c) (sticky-key 1500 lsft))
+sret (tap-next-release ret ret)
+altb (tap-hold 300 bspc ralt)
+
+;;;; Releasing meta key -> switching to Command layer  
+tmf1 (tap-macro-release #(@t1e lmet) @s1c) 
+tmf2 (tap-macro-release #(@t2e lmet) @s1c) 
+tmf3 (tap-macro-release #(@t3e lmet) @s1c) 
+tbcl (tap-next-release tab lctl)
+;;C-c C-v C-z
+cphld (tap-hold 300 C-c C-v)
+zZhld (tap-hold 300 C-z C-Z)
+)
+
+;; Switch layers
+;;;; dzn en  layers
+(deflayer dzn_en_layer_1
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  _      1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
+  _      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  @cesc  a    s    t    XX   XX   XX   XX   XX   e    i    o    @sret
+  @t2e   l    d    r    XX   XX   XX   XX        n    m    u    @t3e
+  @sqwl @tmf1 @tbcl            spc               @t1s @altb 
+  XX     XX   XX   XX
+)
+(deflayer dzn_en_layer_2
+  esc   f1    f2   f3   f4   f5   f6   f7   f8  f9   f10  f11  f12  del
+  _     1     2    3    4    5    6    7    8   9    0    XX   XX   bspc
+  _     XX    XX   XX   XX   XX   XX   XX   XX  XX   XX   XX   XX   XX
+  _     f     b    g    XX   XX   XX   XX   XX  p    v    h    _
+  XX    z     x    c    XX   XX   XX   XX       k    w    y    _
+  @sqwl @tmf2 _              spc                @t2s _ 
+  _     _    _    _ 
+)
+(deflayer dzn_en_layer_3
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10    f11  f12  del
+  _     1    2    3     4    5    6    7    8    9    0     XX   XX   bspc
+  _     XX   XX   XX    XX   XX   XX   XX   XX   XX   XX    XX   XX   XX
+  _     q    XX   XX    XX   XX   XX   XX   XX   XX    XX     j    _
+  @t2e  XX   XX   XX    XX   XX   XX   XX        XX    XX    XX   XX
+  @sqwl @tmf3     _               spc             @t3s _ 
+  _     _    _    _
+)
+
+;;;; QWERTY en layout
+(deflayer qwerty
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  grv   1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @cesc a    s    d    f    g    h    j    k         l    ;    '    @sret
+  lsft  z    x    c    v    b    n    m              ,    .    /    rsft
+  lctl  lmet lalt           spc                      @s1r    @s1e 
+  left up down right 
+)
+
+;;;; Алиасы русской расскладки
+(defalias 
+ё #(`)
+й #(q)  ц #(w)  у #(e)  к #(r)  е #(t)  н #(y)  г #(u)  ш #(i)  щ #(o)  з #(p)  х #([)
+ф #(a)  ы #(s)  в #(d)  а #(f)  п #(g)  р #(h)  о #(j)  л #(k)  д #(l)  ж #(;)  э #(')
+я #(z)  ч #(x)  с #(c)  м #(v)  и #(b)  т #(n)  ь #(m)  б #(,)  ю #(.)
+)
+
+;;;; Слои русской расскладки dzn
+(deflayer dzn_ru_first_layer
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del
+  _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
+  _     XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
+  @cesc @и   @е   @о  XX   XX   XX   XX   XX   @н    @т   @л   @sret
+  @t2r  @м   @в   @а  XX   XX   XX   XX        @к    @с   @р   @t3r
+  @sqwl @tmf1 @tbcl            spc              @t1sr @altb
+  XX    XX   XX   XX
+)
+(deflayer dzn_ru_second_layer
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del
+  _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
+  _     XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
+  _     @й   @ы   @я   XX   XX   XX   XX   XX   @п    @б   @д   _
+  XX    @у   @г   @ь   XX   XX   XX   XX        @з    @ж   @ч   _
+  _     @tmf2     _              spc            @t2sr  _ 
+  _     _    _    _ 
+)
+(deflayer dzn_ru_third_layer
+  esc   f1    f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12   del
+  _     1     2    3    4    5    6    7    8    9     0     XX   XX   bspc
+  _     XX    XX   XX   XX   XX   XX   XX   XX   XX    XX    XX   XX   XX
+  _     @ф    @ё   @х   XX   XX   XX   XX   XX   @ш    @щ    @э  _
+  _     XX    XX   @ц   XX   XX   XX   XX        @ю    XX    XX  XX
+  _     @tmf3  _              spc                @t3sr _
+  _     _    _    _ 
+)
+
+;;;; Command layers
+(deflayer dzn_control_1
+  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  @cesc XX     XX    XX     XX   XX   XX   XX   XX   down  up   right @sret
+  @t2c  @zZhld XX    @cphld XX   XX   XX   XX        left  XX   XX    @t3c
+  @sqwl @tmf1  @tbcl             spc                 @s1e  @altb 
+  left up down right 
+)
+(deflayer dzn_control_2
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  _     XX    XX    XX    XX   XX   XX   XX   XX   pgdn  pgup end   _
+  XX    XX    XX    XX    XX   XX   XX   XX        home  XX   XX    _
+  @sqwl @tmf2 _                spc                 @s1n    _ 
+  left up down right 
+)
+(deflayer dzn_control_3
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  _     M-q   XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    _
+  _     M-y   XX    XX    XX   XX   XX   XX        XX    XX   XX    XX
+  @sqwl @tmf3     _                spc             @s1r    _ 
+  left up down right 
+)
+
+;; Toggle layers
+;;;; Symbol layers
+(deflayer dzn_symbols_1
+  esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins
+  _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
+  _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
+  _     /    \(   \)    XX   XX   XX   XX   XX   =     :    '    _ 
+  @t2s  -    +    *     XX   XX   XX   XX        ?     ,    .    @t3s
+  @sqwl _    _               spc                 XX    _ 
+  left up down right 
+)
+(deflayer dzn_symbols_2
+  esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins
+  _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
+  _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
+  _     \\   [    ]     XX   XX   XX   XX   XX   #     ;    "    _
+  XX    \_   @    ~     XX   XX   XX   XX        |     &    !    _
+  @sqwl _    _               spc                 XX   _ 
+  left up down right 
+)
+(deflayer dzn_symbols_3
+  esc   f1    f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins
+  _     1     2    3     4    5    6    7    8    9     0    XX   XX   bspc
+  _     XX    XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
+  _     %     {    }     XX   XX   XX   XX   XX   <     >    `    _
+  _     @s1c  XX   $     XX   XX   XX   XX        ^     XX   XX   XX
+  @sqwl _     _               spc                 XX    _ 
+  left up down right 
+)
+
+;;;; Numbers layers
+(deflayer dzn_numbers_1
+  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  @cesc 1      2     3      XX   XX   XX   XX   XX   7     8    9     @sret
+  @t2n  4      5     6      XX   XX   XX   XX        0     XX   .     @t3n
+  @sqwl @tmf1  @tbcl             spc                 @t1s    @altb 
+  XX    XX     XX    XX
+)
+(deflayer dzn_numbers_2
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  _     f1    f2    f3    XX   XX   XX   XX   XX   f7    f8   f9    _
+  XX    f4    f5    f6    XX   XX   XX   XX        f10   f11  f12   _
+  @sqwl @tmf2 _                spc                 @t2s    _ 
+  _     _     _     _ 
+)
+(deflayer dzn_numbers_3
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
+  _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    _
+  _     XX    XX    XX    XX   XX   XX   XX        XX    XX   XX    XX
+  @sqwl @tmf3     _                spc             @t3s     _ 
+  _     _     _     _ 
+)
