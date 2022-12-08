@@ -226,7 +226,7 @@ mode "resize" {
 include /home/qd/.config/sway/themes/base16-atelier-heath.config
 
 ### Kmonad config loading (2 sec is a feature)
-exec (sleep 2 |~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kb)
+exec (sleep 2 |~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kbd)
 
 ### Redshift
 exec gammastep -l 59.2239:39.884
