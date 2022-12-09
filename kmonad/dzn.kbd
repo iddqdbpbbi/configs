@@ -71,7 +71,7 @@ t2sr (tap-macro-release #(@usls @t2s) @ruls)
 t3sr (tap-macro-release #(@usls @t3s) @ruls)
 
 ;; Keys for good men
-cesc #(esc @s1c)
+cesc (tap-hold 300 #(esc @s1c) lshift)
 sret (tap-next-release ret ret)
 altb (tap-hold 300 bspc ralt)
 

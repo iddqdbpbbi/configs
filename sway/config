@@ -23,10 +23,10 @@ set $menu dmenu_path | dmenu -fn FiraCode  | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/zen.jpeg fill
+output * bg ~/Pictures/stek.jpg fill
 font pango: FiraCode Nerd Font Medium 12
 #default_border none
-gaps inner 5
+gaps inner 1
 smart_borders on
 smart_gaps on
 #
@@ -73,9 +73,9 @@ exec swayidle -w \
     # Open browser
     workspace 1
 
-    bindsym $mod+z workspace 1; exec chromium
-    bindsym $mod+x workspace 2; exec obsidian
-    bindsym $mod+c workspace 3; exec code
+    bindsym $mod+f workspace 1; exec chromium
+    bindsym $mod+b workspace 2; exec obsidian
+    bindsym $mod+g workspace 3; exec code
     # Start a terminal
     bindsym $mod+Return exec $term
     exec swaymsg $term
@@ -161,10 +161,10 @@ exec swayidle -w \
     bindsym $mod+m splitt
 
     # Switch the current container between different layout styles
-    bindsym $mod+b layout toggle tabbed split
+    bindsym $mod+z layout toggle tabbed split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+x fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
