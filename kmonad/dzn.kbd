@@ -70,12 +70,12 @@ t3sr (tap-macro-release #(@usls @t3s) @ruls)
 cesc (tap-hold 300 #(esc @s1c) lshift)
 sret (tap-next-release ret ret)
 altb (tap-hold 300 bspc ralt)
+tbcl (tap-hold 300 tab lctl)
 
 ;;;; Releasing meta key -> switching to Command layer  
 tmf1 (tap-macro-release #(@t1e lmet) @s1c) 
 tmf2 (tap-macro-release #(@t2e lmet) @s1c) 
 tmf3 (tap-macro-release #(@t3e lmet) @s1c) 
-tbcl (tap-next-release tab lctl)
 ;;C-c C-v C-z
 cphld (tap-hold 300 C-c C-v)
 zZhld (tap-hold 300 C-z C-Z)
