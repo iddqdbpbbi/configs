@@ -53,7 +53,7 @@ t2c (layer-toggle dzn_control_2)
 t3c (layer-toggle dzn_control_3)
 
 ;; Number layers
-s1n (layer-switch dzn_numbers_1)
+t1n (layer-toggle dzn_numbers_1)
 t2n (layer-toggle dzn_numbers_2)
 t3n (layer-toggle dzn_numbers_3)
 
@@ -61,16 +61,21 @@ t3n (layer-toggle dzn_numbers_3)
 t1s (layer-toggle dzn_symbols_1)
 t2s (layer-toggle dzn_symbols_2)
 t3s (layer-toggle dzn_symbols_3)
+
 ;;;; Toggle symbol layers from Russian layers
 t1sr (tap-macro-release #(@usls @t1s) @ruls)
 t2sr (tap-macro-release #(@usls @t2s) @ruls)
 t3sr (tap-macro-release #(@usls @t3s) @ruls)
 
 ;; Keys how god intended
+;;;; Border keys
 cesc (tap-hold 300 #(esc @s1c) lshift)
 sret (tap-next-release ret ret)
 altb (tap-hold 300 bspc ralt)
 tbcl (tap-hold 300 tab lctl)
+
+;;;; Toggle from home raw
+ant (tap-hold 300 a @t1n)
 
 ;;;; Releasing meta key -> switching to Command layer  
 tmf1 (tap-macro-release #(@t1e lmet) @s1c) 
@@ -87,7 +92,7 @@ zZhld (tap-hold 300 C-z C-Z)
   esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
   _      1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
   _      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
-  @cesc  a    s    t    XX   XX   XX   XX   XX   e    i    o    @sret
+  @cesc  @ant    s    t    XX   XX   XX   XX   XX   e    i    o    @sret
   @t2e   l    d    r    XX   XX   XX   XX        n    m    u    @t3e
   @sqwl @tmf1 @tbcl            spc               @t1s @altb 
   XX     XX   XX   XX
@@ -175,7 +180,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     XX    XX    XX    XX   XX   XX   XX   XX   pgdn  pgup end   _
   XX    XX    XX    XX    XX   XX   XX   XX        home  XX   XX    _
-  @sqwl @tmf2 _                spc                 @s1n    _ 
+  @sqwl @tmf2 _                spc                 _     _ 
   left up down right 
 )
 (deflayer dzn_control_3
@@ -223,8 +228,8 @@ zZhld (tap-hold 300 C-z C-Z)
   esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
   _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
   _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
-  @cesc 1      2     3      XX   XX   XX   XX   XX   7     8    9     @sret
-  @t2n  4      5     6      XX   XX   XX   XX        0     XX   .     @t3n
+  @cesc XX     XX    XX     XX   XX   XX   XX   XX   4     5    6      @sret
+  @t2n  XX     XX    XX     XX   XX   XX   XX        1     2    3      @t3n
   @sqwl @tmf1  @tbcl             spc                 @t1s    @altb 
   XX    XX     XX    XX
 )
@@ -232,8 +237,8 @@ zZhld (tap-hold 300 C-z C-Z)
   esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
   _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
-  _     f1    f2    f3    XX   XX   XX   XX   XX   f7    f8   f9    _
-  XX    f4    f5    f6    XX   XX   XX   XX        f10   f11  f12   _
+  _     XX    XX    XX    XX   XX   XX   XX   XX   7     8    9     _
+  XX    XX    XX    XX    XX   XX   XX   XX        0     XX   .     _
   @sqwl @tmf2 _                spc                 @t2s    _ 
   _     _     _     _ 
 )
