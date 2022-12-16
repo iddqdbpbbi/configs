@@ -5,7 +5,7 @@
   allow-cmd true
 )
 (defsrc
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins volu vold KeyMute
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k         l    ;    '    ret
@@ -94,7 +94,7 @@ zZhld (tap-hold 300 C-z C-Z)
 ;; Switch layers
 ;;;; dzn en  layers
 (deflayer dzn_en_layer_1
-  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
   _      1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
   _      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
   @cesc  @t2e @ant s    t    XX   XX   XX   e    i    o   @t3e    @sret
@@ -103,7 +103,7 @@ zZhld (tap-hold 300 C-z C-Z)
   XX     XX   XX   XX
 )
 (deflayer dzn_en_layer_2
-  esc   f1    f2   f3   f4   f5   f6   f7   f8  f9   f10  f11  f12  del
+  esc   f1    f2   f3   f4   f5   f6   f7   f8  f9   f10  f11  f12  del volu vold KeyMute
   _     1     2    3    4    5    6    7    8   9    0    XX   XX   bspc
   _     XX    XX   XX   XX   XX   XX   XX   XX  XX   XX   XX   XX   XX
   _     XX    f     b    g    XX   XX  XX  p    v    h    _   _
@@ -112,7 +112,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     _    _    _ 
 )
 (deflayer dzn_en_layer_3
-  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10    f11  f12  del
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10    f11  f12  del volu vold KeyMute
   _     1    2    3     4    5    6    7    8    9    0     XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX   XX    XX   XX   XX
   _     _    q    XX    XX   XX   XX   XX   XX   XX   j     XX   _
@@ -123,7 +123,7 @@ zZhld (tap-hold 300 C-z C-Z)
 
 ;;;; QWERTY en layout
 (deflayer qwerty
-  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
   grv   1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
   @cesc a    s    d    f    g    h    j    k         l    ;    '    @sret
@@ -142,7 +142,7 @@ zZhld (tap-hold 300 C-z C-Z)
 
 ;;;; Слои русской расскладки dzn
 (deflayer dzn_ru_first_layer
-  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del volu vold KeyMute
   _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX  XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   @cesc @и   @е   @о  XX   XX   XX   XX   XX   @н    @т   @л   @sret
@@ -151,7 +151,7 @@ zZhld (tap-hold 300 C-z C-Z)
   XX    XX   XX   XX
 )
 (deflayer dzn_ru_second_layer
-  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del volu vold KeyMute
   _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   _     @й   @ы   @я   XX   XX   XX   XX   XX   @п    @б   @д   _
@@ -160,7 +160,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     _    _    _ 
 )
 (deflayer dzn_ru_third_layer
-  esc   f1    f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12   del
+  esc   f1    f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12   del volu vold KeyMute
   _     1     2    3    4    5    6    7    8    9     0     XX   XX   bspc
   _     XX    XX   XX   XX   XX   XX   XX   XX   XX    XX    XX   XX   XX
   _     @ф    @ё   @х   XX   XX   XX   XX   XX   @ш    @щ    @э  _
@@ -171,7 +171,7 @@ zZhld (tap-hold 300 C-z C-Z)
 
 ;;;; Command layers
 (deflayer dzn_control_1
-  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
   _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
   _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   @cesc @t2c   XX    XX     XX   XX   XX   XX   down up   right @t3c @sret
@@ -180,7 +180,7 @@ zZhld (tap-hold 300 C-z C-Z)
   left up down right 
 )
 (deflayer dzn_control_2
-  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
   _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     XX    XX    XX    XX   XX   XX   XX   pgdn pgup  end  _     _
@@ -189,7 +189,7 @@ zZhld (tap-hold 300 C-z C-Z)
   left up down right 
 )
 (deflayer dzn_control_3
-  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
   _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     _     M-q   XX    XX   XX   XX   XX   XX   XX    XX   XX    _
@@ -201,7 +201,7 @@ zZhld (tap-hold 300 C-z C-Z)
 ;; Toggle layers
 ;;;; Symbol layers
 (deflayer dzn_symbols_1
-  esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins
+  esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins volu vold KeyMute
   _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   _     /    \(   \)    XX   XX   XX   XX   XX   =     :    '    _ 
@@ -210,7 +210,7 @@ zZhld (tap-hold 300 C-z C-Z)
   left up down right 
 )
 (deflayer dzn_symbols_2
-  esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins
+  esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins volu vold KeyMute
   _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   _     \\   [    ]     XX   XX   XX   XX   XX   #     ;    "    _
@@ -219,7 +219,7 @@ zZhld (tap-hold 300 C-z C-Z)
   left up down right 
 )
 (deflayer dzn_symbols_3
-  esc   f1    f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins
+  esc   f1    f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins volu vold KeyMute
   _     1     2    3     4    5    6    7    8    9     0    XX   XX   bspc
   _     XX    XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   _     %     {    }     XX   XX   XX   XX   XX   <     >    `    _
@@ -230,7 +230,7 @@ zZhld (tap-hold 300 C-z C-Z)
 
 ;;;; Numbers layers
 (deflayer dzn_numbers_1
-  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
   _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
   _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   @cesc @t2n   XX    f5     f6   XX   XX   XX   1    2     3    @t3n  @sret
@@ -239,7 +239,7 @@ zZhld (tap-hold 300 C-z C-Z)
   XX    XX     XX    XX
 )
 (deflayer dzn_numbers_2
-  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
   _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     XX    XX    XX    XX   XX   XX   XX   7    8     9    _     _
@@ -248,7 +248,7 @@ zZhld (tap-hold 300 C-z C-Z)
   _     _     _     _ 
 )
 (deflayer dzn_numbers_3
-  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins
+  esc   f1    f2    f3    f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
   _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     _     XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    _
