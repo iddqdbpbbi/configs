@@ -238,5 +238,6 @@ exec_always pkill waybar && waybar -c .config/sway/waybar/config
 input * {
     xkb_layout "us,ru"
     xkb_options "grp:win_space_toggle,compose:sclk"
+    repeat_delay 700
 }
 include /etc/sway/config.d/*
