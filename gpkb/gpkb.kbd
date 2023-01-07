@@ -5,12 +5,12 @@
   allow-cmd true
 )
 (defsrc
-  9             0
-  lmeta         lctrl
-  c             v
-    up            a
+      9           0
+      lmeta       lctrl
+      c           v
+      up          a
   left  right   d   s
-    down          f
+      down        f
 
           home
 
@@ -50,26 +50,32 @@ ruls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_la
 7lve (layer-toggle en_layer_7)
 8lve (layer-toggle en_layer_8)
 
-#|
-1ltn
-2ltn
-3ltn
-4ltn
-5ltn
-6ltn
-7ltn
-8ltn
-|#
+bsl (layer-toggle blank_symbol_layer)
+1lvs (layer-toggle symbol_layer_1)
+2lvs (layer-toggle symbol_layer_2)
+3lvs (layer-toggle symbol_layer_3)
+4lvs (layer-toggle symbol_layer_4)
+5lvs (layer-toggle symbol_layer_5)
+6lvs (layer-toggle symbol_layer_6)
+7lvs (layer-toggle symbol_layer_7)
+8lvs (layer-toggle symbol_layer_8)
+
+;; Tap hold 
+ph1 (tap-hold 300 \( \))
+ph2 (tap-hold 300 [   ])
+ph3 (tap-hold 300 {   })
+ph4 (tap-hold 300 <   >)
+
+
 )
 
-
 (deflayer en_layer_base
-    XX            shft
-    met           ctl 
-    XX            XX
-    up            esc
-  left  right  bspc  tab
-    down          ret
+      @bsl          shft
+      met           ctl 
+      XX            XX
+      up            esc
+  left  right    bspc  tab
+      down          ret
 
            XX
 
@@ -78,51 +84,116 @@ ruls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_la
   @7lve @6lve @5lve        XX
 )
 
+;; Alpha layers
 (deflayer en_layer_1
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  XX _  _    a
-  _  _  _  d _ b
-  _  _  _    c 
+  XX _  _     g
+  _  _  _   b _ v
+  _  _  _     p 
 )
 (deflayer en_layer_2
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  XX _    e
-  _  _  _  h _ f
-  _  _  _    g
+  _  XX _     o
+  _  _  _   f _ l
+  _  _  _     u
 )
 (deflayer en_layer_3
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  XX   i
-  _  _  _  l _ j
-  _  _  _    k
+  _  _  XX    e
+  _  _  _   h _ r
+  _  _  _     t
 )
 (deflayer en_layer_4
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _    m
-  _  _  XX p _ n
-  _  _  _    o
+  _  _  _     a
+  _  _  XX  d _ n
+  _  _  _     i
 )
 (deflayer en_layer_5
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _    q
-  _  _  _  t _ r
-  _  _  XX   s
+  _  _  _     y
+  _  _  _   m _ s
+  _  _  XX    c
 )
 (deflayer en_layer_6
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _    u
-  _  _  _  x _ v
-  _  XX _    w
+  _  _  _     w
+  _  _  _   x _ z
+  _  XX _     k
 )
 (deflayer en_layer_7
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _     y
-  _  _  _  XX _ z
+  _  _  _     q
+  _  _  _  XX _ spc
   XX _  _     XX
 )
 (deflayer en_layer_8
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _ _ _   XX
-  XX _ _ XX _ XX
-  _ _ _   XX
+  _  _  _     j
+  XX _  _  XX _ XX
+  _  _  _     XX
+)
+
+;; Symbol layers
+(deflayer blank_symbol_layer
+      XX            shft
+      met           ctl 
+      XX            XX
+      up            esc
+  left  right    bspc  tab
+      down          ret
+
+           XX
+
+  @1lvs @2lvs @3lvs        XX
+  @8lvs XX    @4lvs     XX XX spc
+  @7lvs @6lvs @5lvs        XX
+)
+(deflayer symbol_layer_1
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  XX _  _     \\
+  _  _  _   @ph2 _ ~
+  _  _  _     @ 
+)
+(deflayer symbol_layer_2
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  XX _     /
+  _  _  _   @ph1 _ \_
+  _  _  _     #
+)
+(deflayer symbol_layer_3
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  XX    +
+  _  _  _   * _ =
+  _  _  _     -
+)
+(deflayer symbol_layer_4
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     ;
+  _  _  XX  @ph3 _ :
+  _  _  _     '
+)
+(deflayer symbol_layer_5
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     ,
+  _  _  _   ? _ .
+  _  _  XX    !
+)
+(deflayer symbol_layer_6
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     ^
+  _  _  _   @ph4 _ $
+  _  XX _     %
+)
+(deflayer symbol_layer_7
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     `
+  _  _  _   " _ XX
+  XX _  _     XX
+)
+(deflayer symbol_layer_8
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     XX
+  XX _  _  XX _ XX
+  _  _  _     XX
 )
