@@ -82,6 +82,7 @@ exec swayidle -w \
 
     # Kill focused window
     bindsym $mod+q kill
+    bindsym $mod+Escape kill
 
     # Start your launcher
     bindsym $mod+r exec $menu
@@ -139,6 +140,11 @@ exec swayidle -w \
    # bindsym $mod+8 workspace number 8
    # bindsym $mod+9 workspace number 9
    # bindsym $mod+0 workspace number 10
+    # switch for gamepad
+    bindsym $mod+g workspace number 1
+    bindsym $mod+v workspace number 2
+    bindsym $mod+p workspace number 3
+    bindsym $mod+b workspace number 4
    
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1 
@@ -174,7 +180,7 @@ exec swayidle -w \
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+p focus parent
+    #bindsym $mod+p focus parent
 #
 # Scratchpad:
 #
