@@ -39,7 +39,9 @@
 ;; Language switch aliases in sway
 usls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 0")
 ruls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 1")
+
 ;; Switch layers
+
 ;;;; En layers
 1lve (layer-toggle en_layer_1)
 2lve (layer-toggle en_layer_2)
@@ -50,29 +52,23 @@ ruls (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_la
 7lve (layer-toggle en_layer_7)
 8lve (layer-toggle en_layer_8)
 
+;;;; Switch en layer
+bel (layer-switch en_layer_base)
+belfr #(@usls @bel)
+
+;;;; Switch symbol layer
 bsl (layer-toggle blank_symbol_layer)
-1lvs (layer-toggle symbol_layer_1)
-2lvs (layer-toggle symbol_layer_2)
-3lvs (layer-toggle symbol_layer_3)
-4lvs (layer-toggle symbol_layer_4)
-5lvs (layer-toggle symbol_layer_5)
-6lvs (layer-toggle symbol_layer_6)
-7lvs (layer-toggle symbol_layer_7)
-8lvs (layer-toggle symbol_layer_8)
+bslfr (tap-macro-release #(@usls @bsl) @ruls)
 
-;; Tap hold 
-ph1 (tap-hold 300 \( \))
-ph2 (tap-hold 300 [   ])
-ph3 (tap-hold 300 {   })
-ph4 (tap-hold 300 <   >)
-
-
+;;;; Switch rus layer
+brl (layer-switch blank_rus_layer)
+brlfe #(@ruls @brl)
 )
 
 (deflayer en_layer_base
       @bsl          shft
       met           ctl 
-      XX            XX
+      XX            @brlfe
       up            esc
   left  right    bspc  tab
       down          ret
@@ -80,7 +76,7 @@ ph4 (tap-hold 300 <   >)
            XX
 
   @1lve @2lve @3lve        XX
-  @8lve XX    @4lve     XX XX spc
+  @8lve XX    @4lve     XX XX XX
   @7lve @6lve @5lve        XX
 )
 
@@ -124,76 +120,175 @@ ph4 (tap-hold 300 <   >)
 (deflayer en_layer_7
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _  _  _     q
-  _  _  _  XX _ spc
+  _  _  _  XX _ XX
   XX _  _     XX
 )
 (deflayer en_layer_8
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
   _  _  _     j
-  XX _  _  XX _ XX
+  XX _  _  XX _ spc
   _  _  _     XX
 )
 
 ;; Symbol layers
+(defalias
+1lvs (layer-toggle symbol_layer_1)
+2lvs (layer-toggle symbol_layer_2)
+3lvs (layer-toggle symbol_layer_3)
+4lvs (layer-toggle symbol_layer_4)
+5lvs (layer-toggle symbol_layer_5)
+6lvs (layer-toggle symbol_layer_6)
+7lvs (layer-toggle symbol_layer_7)
+8lvs (layer-toggle symbol_layer_8)
+
+;; Tap hold 
+ph1 (tap-hold 300 \( \))
+ph2 (tap-hold 300 [   ])
+
+cphld (tap-hold 300 C-v C-c)
+zZhld (tap-hold 300 C-z C-Z)
+
+)
+
 (deflayer blank_symbol_layer
       XX            shft
       met           ctl 
       XX            XX
-      up            esc
-  left  right    bspc  tab
-      down          ret
+      pgup          esc
+  home    end   @zZhld  tab
+      pgdn          @cphld
 
            XX
 
   @1lvs @2lvs @3lvs        XX
-  @8lvs XX    @4lvs     XX XX spc
+  @8lvs XX    @4lvs     XX XX XX
   @7lvs @6lvs @5lvs        XX
 )
 (deflayer symbol_layer_1
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  XX _  _     \\
-  _  _  _   @ph2 _ ~
-  _  _  _     @ 
+  XX _  _        '
+  _  _  _   @ph2 _ `
+  _  _  _        @ 
 )
 (deflayer symbol_layer_2
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  XX _     /
-  _  _  _   @ph1 _ \_
-  _  _  _     #
+  _  XX _        \\
+  _  _  _   @ph1 _ #
+  _  _  _        ;
 )
 (deflayer symbol_layer_3
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  XX    +
-  _  _  _   * _ =
-  _  _  _     -
+  _  _  XX       *
+  _  _  _      % _ =
+  _  _  _        -
 )
 (deflayer symbol_layer_4
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _     ;
-  _  _  XX  @ph3 _ :
-  _  _  _     '
+  _  _  _        /
+  _  _  XX     , _ .
+  _  _  _        !
 )
 (deflayer symbol_layer_5
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _     ,
-  _  _  _   ? _ .
-  _  _  XX    !
+  _  _  _      ^
+  _  _  _   XX _ $
+  _  _  XX     XX
 )
 (deflayer symbol_layer_6
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _     ^
-  _  _  _   @ph4 _ $
-  _  XX _     %
+  _  _  _        0
+  _  _  _      2 _ 1
+  _  XX _        3
 )
 (deflayer symbol_layer_7
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _     `
-  _  _  _   " _ XX
-  XX _  _     XX
+  _  _  _      4
+  _  _  _    6 _ 5
+  XX _  _      7
 )
 (deflayer symbol_layer_8
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     8
+  XX _  _  XX _ 9
   _  _  _     XX
-  XX _  _  XX _ XX
-  _  _  _     XX
+)
+
+;; Рус layers
+(defalias 
+ё #(`)
+й #(q)  ц #(w)  у #(e)  к #(r)  е #(t)  н #(y)  г #(u)  ш #(i)  щ #(o)  з #(p)  х #([)
+ф #(a)  ы #(s)  в #(d)  а #(f)  п #(g)  р #(h)  о #(j)  л #(k)  д #(l)  ж #(;)  э #(')
+я #(z)  ч #(x)  с #(c)  м #(v)  и #(b)  т #(n)  ь #(m)  б #(,)  ю #(.)
+)
+(defalias 
+1lvr (layer-toggle rus_layer_1)
+2lvr (layer-toggle rus_layer_2)
+3lvr (layer-toggle rus_layer_3)
+4lvr (layer-toggle rus_layer_4)
+5lvr (layer-toggle rus_layer_5)
+6lvr (layer-toggle rus_layer_6)
+7lvr (layer-toggle rus_layer_7)
+8lvr (layer-toggle rus_layer_8)
+)
+(deflayer blank_rus_layer
+      @bslfr         shft
+      met           ctl 
+      XX            @belfr
+      up          esc
+  left  right   bspc  tab
+      down        ret
+
+           XX
+
+  @1lvr @2lvr @3lvr        XX
+  @8lvr XX    @4lvr     XX XX XX
+  @7lvr @6lvr @5lvr        XX
+)
+(deflayer rus_layer_1
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  XX _  _      @д
+  _  _  _   @ж _ @у
+  _  _  _      @к 
+)
+(deflayer rus_layer_2
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  XX _      @п
+  _  _  _   @ш _ @й
+  _  _  _      @ы
+)
+(deflayer rus_layer_3
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  XX     @ф
+  _  _  _   @м _ @а
+  _  _  _      @з
+)
+(deflayer rus_layer_4
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _      @б
+  _  _  XX  @т _ @е
+  _  _  _      @э
+)
+(deflayer rus_layer_5
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     @ь
+  _  _  _   @л _ @с
+  _  _  XX    @р
+)
+(deflayer rus_layer_6
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _      @ю
+  _  _  _   @н _ @г
+  _  XX _      @в
+)
+(deflayer rus_layer_7
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     @я
+  _  _  _   @к _ @о
+  XX _  _     @и
+)
+(deflayer rus_layer_8
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+  _  _  _     @ч
+  XX _  _  @щ _ spc
+  _  _  _     @ц
 )
