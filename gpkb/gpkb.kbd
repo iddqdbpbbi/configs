@@ -125,6 +125,13 @@ brlfe #(@ruls @brl)
 7lvs (layer-toggle symbol_layer_7)
 8lvs (layer-toggle symbol_layer_8)
 
+;; Switch to layer "workspace symbol switch"
+wss (layer-toggle blank_symbol_layer_wss)
+met1 (around met 1)
+met2 (around met 2)
+met3 (around met 3)
+met4 (around met 4)
+
 ;; Tap hold 
 ph1 (tap-hold 300 \( \))
 ph2 (tap-hold 300 [   ])
@@ -135,7 +142,7 @@ zZhld (tap-hold 300 C-z C-Z)
 
 (deflayer blank_symbol_layer
       XX            shft
-      met           ctl
+      @wss          ctl
       XX            XX
       pgup          esc
   home    end   @zZhld  C-v
@@ -146,6 +153,20 @@ zZhld (tap-hold 300 C-z C-Z)
   @1lvs @2lvs @3lvs        XX
   @8lvs XX    @4lvs     XX XX XX
   @7lvs @6lvs @5lvs        XX
+)
+(deflayer blank_symbol_layer_wss
+      XX            _
+      XX            XX
+      XX            XX
+      XX            @met4
+    XX  XX        @met1  @met3
+      XX            @met2
+
+           XX
+
+  XX XX XX        XX
+  XX XX XX     XX XX XX
+  XX XX XX        XX
 )
 (deflayer symbol_layer_1
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _

@@ -72,9 +72,9 @@ exec swayidle -w \
 # Basics:
 #
     # Open program
-    workspace 1; exec firefox
-    workspace 2; exec obsidian
-    workspace 3; exec code
+    workspace number ⭕; exec firefox
+    workspace number 2; exec obsidian
+    workspace number 3; exec code
     
     
     # Start a terminal
@@ -130,6 +130,7 @@ exec swayidle -w \
 #
 # Workspaces:
 #
+    workspace_auto_back_and_forth yes
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -137,16 +138,6 @@ exec swayidle -w \
     bindsym $mod+4 workspace number 4
     bindsym $mod+5 workspace number 5
     bindsym $mod+6 workspace number 6
-   # bindsym $mod+7 workspace number 7
-   # bindsym $mod+8 workspace number 8
-   # bindsym $mod+9 workspace number 9
-   # bindsym $mod+0 workspace number 10
-    # switch for gamepad
-    bindsym $mod+g workspace number 1
-    bindsym $mod+v workspace number 2
-    bindsym $mod+p workspace number 3
-    bindsym $mod+b workspace number 4
-   
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1 
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -154,14 +145,6 @@ exec swayidle -w \
     bindsym $mod+Shift+4 move container to workspace number 4
     bindsym $mod+Shift+5 move container to workspace number 5
     bindsym $mod+Shift+6 move container to workspace number 6
-   # bindsym $mod+Shift+7 move container to workspace number 7
-   # bindsym $mod+Shift+8 move container to workspace number 8
-   # bindsym $mod+Shift+9 move container to workspace number 9
-   # bindsym $mod+Shift+0 move container to workspace number 10
-    bindsym $mod+Shift+g move container to workspace number 1 
-    bindsym $mod+Shift+v move container to workspace number 2
-    bindsym $mod+Shift+p move container to workspace number 3
-    bindsym $mod+Shift+b move container to workspace number 4
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -242,8 +225,8 @@ exec (sleep 2 |~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kbd)
 exec gammastep -l 59.2239:39.884
 
 ### Status Bar:
-exec waybar -c .config/sway/waybar/config
-exec_always pkill waybar && waybar -c .config/sway/waybar/config
+exec waybar -c .config/waybar/config
+exec_always pkill waybar && waybar -c .config/waybar/config
 
 ### Input details
 input * {
