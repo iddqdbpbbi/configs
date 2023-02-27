@@ -57,12 +57,21 @@ exec swayidle -w \
 #
 # Example configuration:
 #
-   input "2:14:SynPS/2_Synaptics_TouchPad" {
+   input "10182:480:GXTP7863:00_27C6:01E0_Touchpad" {
 #       dwt enabled
        tap enabled
 #       natural_scroll enabled
 #       middle_emulation enabled
    }
+   input "1356:2508:Wireless_Controller_Touchpad" {
+#       dwt enabled
+       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+   }
+
+# Auto hide cursor   
+seat * hide_cursor 8000
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -72,9 +81,12 @@ exec swayidle -w \
 # Basics:
 #
     # Open program
-    workspace number ⭕; exec firefox
-    workspace number 2; exec obsidian
-    workspace number 3; exec code
+    workspace 1
+    exec firefox
+    workspace 2
+    exec obsidian
+    workspace 3
+    exec code
     
     
     # Start a terminal
@@ -219,7 +231,7 @@ mode "resize" {
 #! bindsym $mod+r mode "resize"
 
 ### Kmonad config loading (2 sec is a feature)
-exec (sleep 2 |~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kbd)
+#exec (sleep 2 |~/.local/bin/kmonad ~/project/configs/kmonad/dzn.kbd)
 
 ### Redshift
 exec gammastep -l 59.2239:39.884
