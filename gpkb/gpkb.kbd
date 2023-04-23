@@ -158,9 +158,9 @@ zZhld (tap-hold 300 C-z C-Z)
       XX            _
       XX            XX
       XX            XX
-      XX            @met4
-    XX  XX        @met1  @met3
       XX            @met2
+    XX  XX        @met1  @met3
+      XX            @met4
 
            XX
 
