@@ -73,7 +73,7 @@ brlfe #(@ruls @brl)
 )
 (deflayer en_layer_2
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  XX _     o
+  _  XX _     a
   _  _  _   f _ l
   _  _  _     u
 )
@@ -85,7 +85,7 @@ brlfe #(@ruls @brl)
 )
 (deflayer en_layer_4
   _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-  _  _  _     a
+  _  _  _     o
   _  _  XX  d _ n
   _  _  _     i
 )
