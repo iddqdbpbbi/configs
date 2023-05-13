@@ -95,7 +95,7 @@ seat * hide_cursor 8000
     bindsym $mod+Escape kill
 
     # Start your launcher
-    bindsym $mod+r exec $menu
+    bindsym $mod+e exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
