@@ -127,7 +127,7 @@ Zz (tap-hold 300 z Z)
   _      1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
   _      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
   @cesc  @t2e @Aa  @Ss  @Tt  XX   XX   XX   @Ee  @Ii  @Oo  @t3e    @sret
-  @t2e   @Ll  @Dd  @Rr  XX   XX   XX   XX        @Nn  @Mm  @Uu    @t3e
+  XX     @Ll  @Dd  @Rr  XX   XX   XX   XX        @Nn  @Mm  @Uu    XX
   @sqwl @tmf1 @tbcl            spc               @t1s @altb 
   XX     XX   XX   XX
 )
@@ -136,7 +136,7 @@ Zz (tap-hold 300 z Z)
   _     1     2    3    4    5    6    7    8   9    0    XX   XX   bspc
   _     XX    XX   XX   XX   XX   XX   XX   XX  XX   XX   XX   XX   XX
   _     XX    @Ff  @Bb  @Gg  XX   XX   XX   @Pp @Vv  @Hh  _    _
-  XX    @Zz   @Xx  @Cc  XX   XX   XX   XX       @Kk  @Ww  @Yy  _
+  XX    @Zz   @Xx  @Cc  XX   XX   XX   XX       @Kk  @Ww  @Yy  XX
   @sqwl @tmf2 _              spc                @t2s _ 
   _     _    _    _ 
 )
@@ -145,7 +145,7 @@ Zz (tap-hold 300 z Z)
   _     1    2    3     4    5    6    7    8    9    0     XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX   XX    XX   XX   XX
   _     _    XX   XX    @Qq  XX   XX   XX   @Jj  XX   XX    XX   _
-  @t2e  XX   XX   XX    XX   XX   XX   XX        XX   XX    XX   XX
+  XX    XX   XX   XX    XX   XX   XX   XX        XX   XX    XX   XX
   @sqwl @tmf3     _               spc             @t3s _ 
   _     _    _    _
 )
@@ -171,12 +171,12 @@ Zz (tap-hold 300 z Z)
 
 ;;;; Слои русской расскладки dzn
 (deflayer dzn_ru_first_layer
-  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12  del volu vold KeyMute
-  _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
-  _     XX   XX   XX  XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
-  @cesc @t2r @и   @е  @о   XX   XX   XX   @н    @т   @л   @t3r   @sret
-  @t2r  @м   @в   @а  XX   XX   XX   XX   @к    @с   @р   @t3r
-  @sqwl @tmf1     @tclr1        spc            @t1sr @altb
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
+  _     1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
+  _     XX   XX   XX  XX   XX   XX   XX   XX    XX    XX   XX   XX   XX
+  @cesc @t2r @и   @е  @о   XX   XX   XX   @н    @т    @л   @t3r @sret
+  XX    @м   @в   @а  XX   XX   XX   XX         @к    @с   @р   XX
+  @sqwl @tmf1     @tclr1        spc             @t1sr @altb
   XX    XX   XX   XX
 )
 (deflayer dzn_ru_second_layer
@@ -184,28 +184,28 @@ Zz (tap-hold 300 z Z)
   _     1    2    3    4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX   XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
   _     XX   @й   @ы   @я   XX   XX   XX   @п   @б    @д   _    _
-  XX    @у   @г   @ь   XX   XX   XX   XX   @з   @ж    @ч   _
+  XX    @у   @г   @ь   XX   XX   XX   XX        @з    @ж   @ч   XX
   _     @tmf2     @tclr2         spc            @t2sr  _ 
   _     _    _    _ 
 )
 (deflayer dzn_ru_third_layer
-  esc   f1    f2   f3   f4   f5   f6   f7   f8   f9    f10  f11  f12   del volu vold KeyMute
-  _     1     2    3    4    5    6    7    8    9     0     XX   XX   bspc
-  _     XX    XX   XX   XX   XX   XX   XX   XX   XX    XX    XX   XX   XX
-  _     _     @ф   @ё   @х   XX   XX   XX   @ш   @щ    @э    XX   _
-  _     XX    XX   @ц   XX   XX   XX   XX   @ю   XX    XX    XX
-  _     @tmf3      @tclr3         spc                @t3sr _
+  esc   f1    f2   f3   f4   f5   f6   f7   f8  f9    f10  f11  f12   del volu vold KeyMute
+  _     1     2    3    4    5    6    7    8   9     0     XX   XX   bspc
+  _     XX    XX   XX   XX   XX   XX   XX   XX  XX    XX    XX   XX   XX
+  _     _     @ф   @ё   @х   XX   XX   XX   @ш  @щ    @э    XX   _
+  XX    XX    XX   @ц   XX   XX   XX   XX       @ю   XX    XX    XX
+  _     @tmf3      @tclr3         spc           @t3sr _
   _     _    _    _ 
 )
 
 ;;;; Command layers
 (deflayer dzn_control_1
-  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
-  _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
-  _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
-  @cesc @t2c   XX    XX     XX   XX   XX   XX   down up   right @t3c @sret
-  @t2c  @zZhld XX    @cphld XX   XX   XX   XX   left  XX   XX    @t3c
-  @sqwl @tmf1  @tbcl             spc                 @s1e  @altb 
+  esc   f1    f2   f3     f4   f5   f6   f7   f8    f9    f10   f11   f12  ins volu vold KeyMute
+  _     1     2    3      4    5    6    7    8     9     0     XX    XX   bspc
+  _     XX    XX   XX     XX   XX   XX   XX   XX    XX    XX    XX    XX   XX
+  @cesc @t2c  XX   XX     XX   XX   XX   XX   down  up    right @t3c @sret
+  XX  @zZhld  XX   @cphld XX   XX   XX   XX         left  XX    XX    XX
+  @sqwl @tmf1      @tbcl       spc                  @s1e  @altb
   left up down right 
 )
 (deflayer dzn_control_2
@@ -213,8 +213,8 @@ Zz (tap-hold 300 z Z)
   _     1     2     3     4    5    6    7    8    9     0    XX    XX   bspc
   _     XX    XX    XX    XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
   _     XX    XX    XX    XX   XX   XX   XX   pgdn pgup  end  _     _
-  XX    XX    XX    XX    XX   XX   XX   XX   home  XX   XX   _
-  @sqwl @tmf2 _                spc            _     _ 
+  XX    XX    XX    XX    XX   XX   XX   XX        home  XX   XX   XX
+  @sqwl @tmf2 _                spc                 _     _ 
   left up down right 
 )
 (deflayer dzn_control_3
@@ -233,8 +233,8 @@ Zz (tap-hold 300 z Z)
   esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins volu vold KeyMute
   _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
-  _     @t2s /    \(   \)    XX   XX   XX   =     :    '    @t3s _ 
-  @t2s  -    +    *     XX   XX   XX   XX   ?     ,    .    @t3s
+  _     @t2s /    \(   \)    XX   XX   XX   =    :     '    @t3s _ 
+  XX    -    +    *     XX   XX   XX   XX        ?     ,    .    XX
   @sqwl _    _               spc                 XX    _ 
   left up down right 
 )
@@ -242,8 +242,8 @@ Zz (tap-hold 300 z Z)
   esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins volu vold KeyMute
   _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
-  _     XX   \\   [    ]     XX   XX   XX   #     ;    "    _    _
-  XX    \_   @    ~     XX   XX   XX   XX   |     &    !    _
+  _     XX   \\   [    ]     XX   XX   XX   #    ;     "    _    _
+  XX    \_   @    ~     XX   XX   XX   XX        |     &    !    XX
   @sqwl _    _               spc                 XX   _ 
   left up down right 
 )
