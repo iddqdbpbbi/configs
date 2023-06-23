@@ -71,7 +71,7 @@ t3sr (tap-macro-release #(@usls @t3s) @ruls)
 ;;;; Border keys
 cesc (tap-hold 300 #(esc @s1c) lshift)
 sret (tap-next-release ret ret)
-altb (tap-hold 300 bspc @t1n)
+tnlbs (tap-hold 300 bspc @t1n)
 tbcl (tap-hold 300 tab lctl)
 
 ;;;; Toggle language switch with ctrl press in russian layer
@@ -128,7 +128,7 @@ Zz (tap-hold 300 z Z)
   _      XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
   @cesc  @t2e @Aa  @Ss  @Tt  XX   XX   XX   @Ee  @Ii  @Oo  @t3e    @sret
   XX     @Ll  @Dd  @Rr  XX   XX   XX   XX        @Nn  @Mm  @Uu    XX
-  @sqwl @tmf1 @tbcl            spc               @t1s @altb 
+  @sqwl @tmf1 @tbcl            spc               @t1s @tnlbs 
   XX     XX   XX   XX
 )
 (deflayer dzn_en_layer_2
@@ -176,7 +176,7 @@ Zz (tap-hold 300 z Z)
   _     XX   XX   XX  XX   XX   XX   XX   XX    XX    XX   XX   XX   XX
   @cesc @t2r @и   @е  @о   XX   XX   XX   @н    @т    @л   @t3r @sret
   XX    @м   @в   @а  XX   XX   XX   XX         @к    @с   @р   XX
-  @sqwl @tmf1     @tclr1        spc             @t1sr @altb
+  @sqwl @tmf1     @tclr1        spc             @t1sr @tnlbs
   XX    XX   XX   XX
 )
 (deflayer dzn_ru_second_layer
@@ -205,7 +205,7 @@ Zz (tap-hold 300 z Z)
   _     XX    XX   XX     XX   XX   XX   XX   XX    XX    XX    XX    XX   XX
   @cesc @t2c  XX   XX     XX   XX   XX   XX   down  up    right @t3c @sret
   XX  @zZhld  XX   @cphld XX   XX   XX   XX         left  XX    XX    XX
-  @sqwl @tmf1      @tbcl       spc                  @s1e  @altb
+  @sqwl @tmf1      @tbcl       spc                  @s1e  @tnlbs
   left up down right 
 )
 (deflayer dzn_control_2
@@ -242,7 +242,7 @@ Zz (tap-hold 300 z Z)
   esc   f1   f2   f3    f4   f5   f6   f7   f8   f9    f10  f11  f12  ins volu vold KeyMute
   _     1    2    3     4    5    6    7    8    9     0    XX   XX   bspc
   _     XX   XX   XX    XX   XX   XX   XX   XX   XX    XX   XX   XX   XX
-  _     XX   \\   [    ]     XX   XX   XX   #    ;     "    _    _
+  _     XX   \\   [     ]    XX   XX   XX   #    ;     "    _    _
   XX    \_   @    ~     XX   XX   XX   XX        |     &    !    XX
   @sqwl _    _               spc                 XX   _ 
   left up down right 
@@ -259,12 +259,12 @@ Zz (tap-hold 300 z Z)
 
 ;;;; Numbers layers
 (deflayer dzn_numbers_1
-  esc   f1     f2    f3     f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
-  _     1      2     3      4    5    6    7    8    9     0    XX    XX   bspc
-  _     XX     XX    XX     XX   XX   XX   XX   XX   XX    XX   XX    XX   XX
-  @cesc @t2n   XX    f5     f6   XX   XX   XX   1    2     3    @t3n  @sret
-  @t2n  XX     XX    f12    XX   XX   XX   XX        4     5    6     @t3n
-  @sqwl @tmf1  @tbcl             spc                 @t1s    @altb 
+  esc   f1     f2    f3   f4   f5   f6   f7   f8   f9    f10  f11   f12  ins volu vold KeyMute
+  _     1      2     3    4    5    6    7    8    9     0    XX    XX   bspc
+  _     0      7     8    9   XX   XX   XX    XX   XX    XX   XX    XX   XX
+  @cesc @t2n   4     5    6   XX   XX   XX    F6   F12   F5   @t3n  @sret
+  XX    1     2    3      XX  XX   XX   XX              5    6    XX
+  @sqwl @tmf1  @tbcl             spc                 @t1s    @tnlbs 
   XX    XX     XX    XX
 )
 (deflayer dzn_numbers_2
