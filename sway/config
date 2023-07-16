@@ -41,6 +41,7 @@ output HDMI-A-1 position 0 0
 #
 # Example configuration:
 #
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec swayidle -w \
     timeout 180 'swaylock -f -c 000000' \
     timeout 360 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -59,7 +60,9 @@ exec swayidle -w \
 #
    input "10182:480:GXTP7863:00_27C6:01E0_Touchpad" {
 #       dwt enabled
-       tap enabled
+      tap enabled
+       accel_profile adaptive
+       click_method clickfinger
 #       natural_scroll enabled
 #       middle_emulation enabled
    }

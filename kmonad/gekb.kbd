@@ -17,24 +17,27 @@
   ;; Language switch aliases in sway
   usls   (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 0")
   ruls   (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 1")
+
   ;; Bind switching layer with switching language
   sct   #(@usls (layer-switch control_layer))
-  sen   #(@usls (layer-switch en_qwerty))
+  sen   #(@usls (layer-switch en_qwerty)) 
   sru   #(@ruls (layer-switch ru_qwerty))
-  
+  sec   #(@usls (layer-switch en_colemac_dh))
+
   ;; Toggle symbol layer  
-  tsfen  (layer-toggle symbol_layer)
-  tsfru  (tap-macro-release #(@usls @tsfen) @ruls)
+  tsfen  (layer-toggle symbol_layer) ;; Toggle Symbol layer From EN
+  tsfru  (tap-macro-release #(@usls @tsfen) @ruls) ;; Toggle Symbol layer From RU
   
   ;; Key bindings
-  scesc #(@usls esc @sct)
-  metsc (tap-macro-release #(@sen lmet) @sct)
-  vimbo #(end ret @sen)
-  fndse #(C-f @sen)
+  scesc #(@usls esc @sct) ;; Switch Control layer + ESC
+  metsc (tap-macro-release #(@sen lmet) @sct) ;; METa key press + Switch Control
+  vimbo #(end ret @sen) ;; VIM binding O
+  fndse #(C-f @sen) ;; FiNd Switch EN
+  ;; Moving bindings
 )
 
 (deflayer en_qwerty
-  C-w   f1     f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
+  XX   f1     f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
   XX     1      2    3    4    5    6    7    8    9    0    XX   XX    XX
   tab    q      w    e    r    t    y    u    i    o    p    XX   XX    XX
   @scesc a      s    d    f    g    h    j    k         l    XX   XX    ret
@@ -43,9 +46,19 @@
   XX XX XX XX
 )
 
+(deflayer en_colemac_dh
+  XX   f1     f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
+  XX     1      2    3    4    5    6    7    8    9    0    XX   XX    XX
+  tab    q      w    f    p    b    j    l    u    y    XX   XX   XX    XX
+  @scesc a      r    s    t    g    m    n    e    i    o    XX    ret
+  lsft   x      c    d    v    z    k    h              XX   XX   XX    XX
+  lctl   @metsc lalt           spc                      @tsfen    bspc
+  XX XX XX XX
+)
+
 (deflayer symbol_layer
-  C-w    f1     f2   f3   f4   f5   f6   f7   f8    f9   f10  f11  f12   del volu vold KeyMute
-  XX     1      2    3    4    5    6    7    8     9    0    XX   XX    XX
+  XX    f1     f2   f3   f4   f5   f6   f7   f8    f9   f10  f11  f12   del volu vold KeyMute
+  XX     C-1    C-2  C-3  C-4  C-5  C-6  C-7  C-8   C-9  C-0    XX   XX    XX
   tab    "      [    ]    \_   \    @    ^    *     /    ~    `    XX    XX 
   @scesc ;      \(   \)   #    |    &    =    +     -    :    '    ret
   lsft   %      {    }   <    >    $    !          ,    .    ?    XX
@@ -54,12 +67,12 @@
 )
 
 (deflayer control_layer
-  C-w  f1   f2   f3   f4      f5   f6   f7   f8     f9     f10   f11  f12  del volu vold KeyMute
+  XX  f1   f2   f3   f4      f5   f6   f7   f8     f9     f10   f11  f12  del volu vold KeyMute
   XX    1    2    3    4      5    6    7    8      9      0     XX   XX   XX
-  tab   XX   C-rght XX @sru   XX   XX   XX   @sen   @vimbo XX    XX   XX   XX
+  tab   XX C-rght XX   @sru   XX   XX   XX   @sen   @vimbo XX    XX   XX   XX
   esc   C-a  XX   XX   @fndse XX   home down up     rght   end   XX   ret
-  lsft  C-z  C-x  C-c  C-v    XX        C-left left XX     XX    XX   XX
-  lctl  @metsc lalt           spc                      @tsfen        bspc
+  lsft  C-z  C-x  C-c  C-v    XX   C-left left XX   XX     XX    XX
+  lctl  @metsc lalt           spc                   @tsfen         bspc
   home pgup pgdn end
 )
 
@@ -72,7 +85,7 @@
 )
 
 (deflayer ru_qwerty
-  C-w   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
+  XX   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  del volu vold KeyMute
   @ё     1    2    3    4    5    6    7    8    9    0    XX   XX    XX
   tab    @й   @ц   @у   @к   @е   @н   @г   @ш   @щ   @з   @х   @ъ    XX
   @scesc @ф   @ы   @в   @а   @п   @р   @о   @л        @д   @ж   @э    ret
