@@ -27,9 +27,9 @@ output * bg ~/Pictures/stek.jpg fill
 font pango: FiraCode Nerd Font Medium 12
 titlebar_border_thickness 0
 default_border none 
-gaps inner 0
+gaps inner 4
 smart_borders on
-# smart_gaps on
+smart_gaps on
 #
 # Example configuration:
 #
@@ -137,10 +137,10 @@ exec_always pkill waybar && waybar -c .config/waybar/config
 #    bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    bindsym $mod+Shift+$left move left 50px
+    bindsym $mod+Shift+$down move down 50px
+    bindsym $mod+Shift+$up move up 50px
+    bindsym $mod+Shift+$right move right 50px
     # Ditto, with arrow keys
  #   bindsym $mod+Shift+Left move left
  #   bindsym $mod+Shift+Down move down
@@ -148,10 +148,10 @@ exec_always pkill waybar && waybar -c .config/waybar/config
  #   bindsym $mod+Shift+Right move right
     
     # Resize active window
-    bindsym $mod+Ctrl+$left resize shrink width 10px
-    bindsym $mod+Ctrl+$down resize grow height 10px
-    bindsym $mod+Ctrl+$up resize shrink height 10px
-    bindsym $mod+Ctrl+$right resize width 10px
+    bindsym $mod+Ctrl+l resize shrink width 50px
+    bindsym $mod+Ctrl+k resize grow height 50px
+    bindsym $mod+Ctrl+j resize shrink height 50px
+    bindsym $mod+Ctrl+m resize grow width 50px
 #
 # Workspaces:
 #
@@ -178,7 +178,7 @@ exec_always pkill waybar && waybar -c .config/waybar/config
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+n splitt
+    # bindsym $mod+n splitt
 
     # Switch the current container between different layout styles
     bindsym $mod+z layout toggle tabbed split

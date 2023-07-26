@@ -19,8 +19,8 @@
   ruls    (cmd-button "swaymsg input '1:1:AT_Translated_Set_2_keyboard' xkb_switch_layout 1")
 
   ;; Bind switching layer with switching language
-  sct     #(@usls (layer-switch control_layer))
-  sen     #(@usls (layer-switch en_qwerty)) 
+  sct     #(@usls (layer-switch control_layer)) ;; Switch Control Layer
+  sen     #(@usls (layer-switch en_qwerty))
   sru     #(@ruls (layer-switch ru_qwerty))
   ;;;; Colemak 
   sec     #(@usls (layer-switch en_colemac_dh))
@@ -38,8 +38,8 @@
   ctret   (tap-next tab lctl) ;; CTRl and Tab in one
   tnses   (tap-next @scesc lsft)
   ;; Moving bindings
-  fndse   #(C-f @sen) ;; FiNd Switch EN
-  vimbo   #(end ret @sen) ;; VIM binding O
+  fndse   #(C-f @sen) ;; FiND Switch EN
+  vimbo   #(end ret @sen) ;; VIM Binding O
 )
 
 (deflayer en_qwerty
@@ -64,7 +64,7 @@
 
 (deflayer symbol_layer
   XX     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del volu vold KeyMute
-  XX     A-1    A-2    A-3    A-4    A-5    A-6    A-7    A-8    A-9    A-0    XX     XX     XX
+  XX     C-1    C-2    C-3    C-4    C-5    C-6    C-7    C-8    C-9    C-0    XX     XX     XX
   XX     bspc   [      ]      \_     \      @      ^      *      /      ~      '      `      XX 
   XX     ;      \(     \)     #      |      &      =      +             -      :      "      A-ret
   XX     %      {      }      <      >      $      !                    ,      .      ?      XX
@@ -74,8 +74,8 @@
 
 (deflayer control_layer
   XX     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del volu vold KeyMute
-  XX     1      2      3      4      5      6      7      8      9      0      XX     XX     XX
-  XX     bspc   C-rght XX     @sru   XX     XX     XX     @sen   @vimbo XX     XX     XX     XX
+  XX     A-1    A-2    A-3    A-4    A-5    A-6    A-7    A-8    A-9    A-0    XX     XX     XX
+  XX     bspc   C-rght XX     @sru   C-t    XX     XX     @sen   @vimbo XX     XX     XX     XX
   XX     @estml XX     XX     @fndse XX     XX     down   up            rght   XX     XX     ret
   XX     C-z    C-x    C-c    C-v    XX     C-left left                 XX     XX     XX     XX
   XX     @metsc @ctret        spc           @tsfen @tnses
