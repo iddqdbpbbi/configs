@@ -85,10 +85,12 @@ exec_always pkill waybar && waybar -c .config/waybar/config
 
 ### After start
     # Open program
-    assign [class="firefox"] workspace 1
+    #assign [class="firefox"] workspace 1
+    assign [class="chromium"] workspace 1
     assign [class="obsidian"] workspace 2
     assign [class="code-oss"] workspace 3
-    exec firefox;
+    #exec firefox;
+    exec chromium;
     exec obsidian;    
     exec code;
 ### Key bindings
@@ -101,8 +103,7 @@ exec_always pkill waybar && waybar -c .config/waybar/config
     exec swaymsg $term
 
     # Kill focused window
-    bindsym $mod+q kill
-    bindsym $mod+Escape kill
+    bindsym $mod+Shift+a kill
 
     # Start your launcher
     bindsym $mod+e exec $menu

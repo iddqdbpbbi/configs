@@ -776,7 +776,11 @@ window:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 
-# key_bindings:
+key_bindings:
+  - { key: V,         mods: Control,                         action: Paste             }
+  - { key: C,         mods: Control,                         action: Copy              }
+  - { key: V,         mods: Shift|Control,                   chars: "\x16"             }
+  - { key: C,         mods: Shift|Control,                   chars: "\x03"             }
 #   - { key: Paste,                                       action: Paste          }
 #   - { key: Copy,                                        action: Copy           }
 #   - { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -787,6 +791,7 @@ window:
 #   - { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
 #   Vi Mode
+  - { key: Space,     mods: Shift,        mode: ~Search,    action: ToggleViMode      }
 #   - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
 #   - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
 #   - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
@@ -797,15 +802,15 @@ window:
 #   - { key: E,      mods: Control,       mode: Vi|~Search, action: ScrollLineDown          }
 #   - { key: G,                           mode: Vi|~Search, action: ScrollToTop             }
 #   - { key: G,      mods: Shift,         mode: Vi|~Search, action: ScrollToBottom          }
-#   - { key: B,      mods: Control,       mode: Vi|~Search, action: ScrollPageUp            }
-#   - { key: F,      mods: Control,       mode: Vi|~Search, action: ScrollPageDown          }
+  - { key: PageUp,                           mode: Vi|~Search, action: ScrollPageUp            }
+  - { key: PageDown,                         mode: Vi|~Search, action: ScrollPageDown          }
 #   - { key: U,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageUp        }
 #   - { key: D,      mods: Control,       mode: Vi|~Search, action: ScrollHalfPageDown      }
 #   - { key: Y,                           mode: Vi|~Search, action: Copy                    }
 #   - { key: Y,                           mode: Vi|~Search, action: ClearSelection          }
 #   - { key: Copy,                        mode: Vi|~Search, action: ClearSelection          }
-#   - { key: V,                           mode: Vi|~Search, action: ToggleNormalSelection   }
-#   - { key: V,      mods: Shift,         mode: Vi|~Search, action: ToggleLineSelection     }
+  - { key: Tab,                           mode: Vi|~Search, action: ToggleNormalSelection   }
+  - { key: Tab,      mods: Shift,         mode: Vi|~Search, action: ToggleLineSelection     }
 #   - { key: V,      mods: Control,       mode: Vi|~Search, action: ToggleBlockSelection    }
 #   - { key: V,      mods: Alt,           mode: Vi|~Search, action: ToggleSemanticSelection }
 #   - { key: Return,                      mode: Vi|~Search, action: Open                    }
@@ -837,8 +842,8 @@ window:
 #   - { key: N,      mods: Shift,         mode: Vi|~Search, action: SearchPrevious          }
 
 #   Search Mode
-#   - { key: Return,                mode: Search|Vi,  action: SearchConfirm         }
-#   - { key: Escape,                mode: Search,     action: SearchCancel          }
+  - { key: Return,                mode: Search|Vi,  action: SearchConfirm         }
+  - { key: Escape,                mode: Search,     action: SearchCancel          }
 #   - { key: C,      mods: Control, mode: Search,     action: SearchCancel          }
 #   - { key: U,      mods: Control, mode: Search,     action: SearchClear           }
 #   - { key: W,      mods: Control, mode: Search,     action: SearchDeleteWord      }
