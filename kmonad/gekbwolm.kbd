@@ -46,13 +46,13 @@
 )
 
 (deflayer en_qwerty
-  XX     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del volu vold KeyMute
-  XX     1      2      3      4      5      6      7      8      9      0      XX     XX     XX
-  XX     q      w      e      r      t      y      u      i      o      p      XX     XX     XX
-  XX     a      s      d      f      g      h      j      k             l      XX     XX     ret
-  XX     z      x      c      v      b      n      m                    XX     XX     XX     XX
-  XX     @metsc @cttab        spc           @tsfen @tnses
-  XX XX XX XX
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins volu vold KeyMute
+  grv  1    2    3    4    5    6    7    8    9    0    XX   XX    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    XX   XX    XX
+  caps a    s    d    f    g    h    j    k         l    XX   XX    ret
+  lsft z    x    c    v    b    n    m              XX   XX   XX    rsft
+  lctl @metsc    lalt           spc                 @tsfen lsft
+  left up down right
 )
 
 (deflayer en_colemac_dh
@@ -61,7 +61,7 @@
   XX     q      w      f      p      b      j      l      u      y      XX     XX     XX     XX
   XX     a      r      s      t      g      m      n      e             i      o      XX     ret
   XX     x      c      d      v      z      k      h                    XX     XX     XX     XX
-  XX     @metsc @cttab        spc           @tsfen @tnses
+  XX     @metsc lalt          spc           @tsfen @tnses
   XX XX XX XX
 )
 
@@ -78,7 +78,7 @@
 (deflayer control_layer
   XX     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del volu vold KeyMute
   XX     A-1    A-2    A-3    A-4    A-5    A-6    A-7    A-8    A-9    A-0    XX     XX     XX
-  XX     bspc   C-rght @ocp   @sru   XX     XX     XX     @sen   @vimbo XX     XX     XX     XX
+  XX     bspc   C-rght @ocp   @sru   C-t    XX     XX     @sen   @vimbo XX     XX     XX     XX
   XX     @estml XX     XX     @fndse XX     XX     down   up            rght   XX     XX     ret
   XX     C-z    C-x    C-c    C-v    XX     C-left left                 XX     XX     XX     XX
   XX     @metsc @cttab        spc          @tsfen @tnses
@@ -114,11 +114,11 @@
 )
 
 (deflayer ru_qwerty
-  XX     f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del volu vold KeyMute
-  @ё     1      2      3      4      5      6      7      8      9      0      XX     XX     XX
-  XX     @й     @ц     @у     @к     @е     @н     @г     @ш     @щ     @з     @х     @ъ     XX
-  XX     @ф     @ы     @в     @а     @п     @р     @о     @л            @д     @ж     @э     ret
-  XX     @я     @ч     @с     @м     @и     @т     @ь                   @б     @ю     XX     XX
-  XX     @metsc @cttab        spc           @tsfru @tnses
-  XX XX XX XX 
+  esc      f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12    del volu vold KeyMute
+  @ё       1      2      3      4      5      6      7      8      9      0      XX     XX     XX
+  tab      @й     @ц     @у     @к     @е     @н     @г     @ш     @щ     @з     @х     @ъ     XX
+  caps     @ф     @ы     @в     @а     @п     @р     @о     @л            @д     @ж     @э     ret
+  lsft     @я     @ч     @с     @м     @и     @т     @ь                   @б     @ю     XX     XX
+  lctl     @metsc lalt   spc           @tsfru lsft
+  left up down right 
 )

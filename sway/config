@@ -103,7 +103,7 @@ exec_always pkill waybar && waybar -c .config/waybar/config
     exec swaymsg $term
 
     # Kill focused window
-    bindsym $mod+Shift+a kill
+    bindsym $mod+Shift+q kill
 
     # Start your launcher
     bindsym $mod+e exec $menu
