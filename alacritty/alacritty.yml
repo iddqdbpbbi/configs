@@ -777,10 +777,10 @@ window:
 # in the order they were defined in.
 
 key_bindings:
-  - { key: V,         mods: Control,                         action: Paste             }
-  - { key: C,         mods: Control,                         action: Copy              }
-  - { key: V,         mods: Shift|Control,                   chars: "\x16"             }
-  - { key: C,         mods: Shift|Control,                   chars: "\x03"             }
+  - { key: V,         mods: Control, mode: ~Vi|~Search,  action: Paste             }
+  - { key: C,         mods: Control, mode: ~Vi|~Search,  action: Copy              }
+  - { key: V,         mods: Shift|Control,               chars: "\x16"             } 
+  - { key: C,         mods: Shift|Control,               chars: "\x03"             }
 #   - { key: Paste,                                       action: Paste          }
 #   - { key: Copy,                                        action: Copy           }
 #   - { key: L,         mods: Control,                    action: ClearLogNotice }

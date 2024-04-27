@@ -36,7 +36,7 @@
   metsc   (tap-macro-release #(@sen lmet) @sct) ;; METa key press + Switch Control
   estml   (tap-next esc (layer-toggle mega_layer)) ;; ESc + Toggle Mega Layer
   scesc   #(@usls @sct) ;; Switch Control layer + ESC
-  cttab   #(lctl) ;; CTRl and Tab in one
+  ctten   (around @tle lctl) ;; Toggle layer qwerty around ctrl
   tnses   (tap-next @scesc lsft)
   ;; Moving bindings
   fndse   #(C-f @sen) ;; FiND Switch EN
@@ -51,7 +51,7 @@
   XX     q      w      e      r      t      y      u      i      o      p      XX     XX     XX
   XX     a      s      d      f      g      h      j      k             l      XX     XX     ret
   XX     z      x      c      v      b      n      m                    XX     XX     XX     XX
-  XX     @metsc @cttab        spc           @tsfen @tnses
+  XX     @metsc @ctten        spc           @tsfen @tnses
   XX XX XX XX
 )
 
@@ -61,7 +61,7 @@
   XX     q      w      f      p      b      j      l      u      y      XX     XX     XX     XX
   XX     a      r      s      t      g      m      n      e             i      o      XX     ret
   XX     x      c      d      v      z      k      h                    XX     XX     XX     XX
-  XX     @metsc @cttab        spc           @tsfen @tnses
+  XX     @metsc @ctten        spc           @tsfen @tnses
   XX XX XX XX
 )
 
@@ -71,7 +71,7 @@
   XX     bspc   {      }      \_     \      @      ^      *      /      ~      '      `      XX 
   XX     ;      \(     \)     #      |      &      =      +             -      :      "      A-ret
   XX     %      [      ]      <      >      $      !                    ,      .      ?      XX
-  XX     @metsc @cttab        tab           XX     @tnses
+  XX     @metsc @ctten        tab           XX     @tnses
   XX XX XX XX 
 )
 
@@ -81,7 +81,7 @@
   XX     bspc   C-rght @ocp   @sru   XX     XX     XX     @sen   @vimbo XX     XX     XX     XX
   XX     @estml XX     XX     @fndse XX     XX     down   up            rght   XX     XX     ret
   XX     C-z    C-x    C-c    C-v    XX     C-left left                 XX     XX     XX     XX
-  XX     @metsc @cttab        spc          @tsfen @tnses
+  XX     @metsc @ctten        spc          @tsfen @tnses
   XX     XX     XX     XX
 )
 
@@ -119,6 +119,6 @@
   XX     @й     @ц     @у     @к     @е     @н     @г     @ш     @щ     @з     @х     @ъ     XX
   XX     @ф     @ы     @в     @а     @п     @р     @о     @л            @д     @ж     @э     ret
   XX     @я     @ч     @с     @м     @и     @т     @ь                   @б     @ю     XX     XX
-  XX     @metsc @cttab        spc           @tsfru @tnses
+  XX     @metsc @ctten        spc           @tsfru @tnses
   XX XX XX XX 
 )
